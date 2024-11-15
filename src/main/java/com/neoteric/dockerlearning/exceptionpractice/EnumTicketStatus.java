@@ -2,8 +2,9 @@ package com.neoteric.dockerlearning.exceptionpractice;
 
 public enum EnumTicketStatus {
 
-     BOOKED,
+      BOOKED,
     FAILED,
-    REFUNDED
+     REFUNDED;
+
 
 }

@@ -3,7 +3,7 @@ package com.neoteric.dockerlearning.exceptionpractice;
 public class MovieTicketBookingApp {
 
     public static void main(String[] args) {
-        MovieTicketBooking bookingSystem = new MovieTicketBooking(100);
+        MovieTicketBooking bookingSystem = new MovieTicketBooking(1000);
         double ticketPrice = 500;
 
         try {
