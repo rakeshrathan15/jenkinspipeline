@@ -1,6 +1,6 @@
 package com.neoteric.dockerlearning.garbagecollection;
 
-public class Stud {
+public class Student {
     private String name;
 
     public String getName() {
