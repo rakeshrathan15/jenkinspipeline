@@ -9,6 +9,9 @@ public class EmployeeMap {
 
 
     public static void main(String[] args) {
+
+
+        //using List
         List<Employee> employeeList= new ArrayList<>();
 
         Employee employee1= new Employee("1","Rakesh");
@@ -33,6 +36,8 @@ public class EmployeeMap {
 
 
 
+
+        //Using  Map
         Map<String,Employee> employeeMap= new HashMap<>();
 
 
@@ -51,13 +56,21 @@ public class EmployeeMap {
 
         Set<Map.Entry<String,Employee>> entrySet= employeeMap.entrySet();
 
+        //this is using iterator
         Iterator<Map.Entry<String,Employee>> entryIterator= entrySet.iterator();
 
           for(;entryIterator.hasNext();){
               Map.Entry<String,Employee> employeeEntry = entryIterator.next();
               System.out.println(" key "+employeeEntry.getKey() +  "   values  "+employeeEntry.getValue());
 
-    }
+          }
+
+
+
+          // this is using streams
+          employeeMap.entrySet().stream().forEach(mapEntry ->{
+              System.out.println("k"+mapEntry.getKey()+"  values "+mapEntry.getValue());
+          });
 
 
 
