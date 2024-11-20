@@ -1,4 +1,5 @@
 package com.neoteric.stramsdemo;
+import java.util.logging.Logger;
 
 import com.sun.jdi.request.StepRequest;
 
@@ -6,9 +7,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class EmployeeMap {
+    // Logger logger= Logger.getLogger(getClass().getName());
 
 
     public static void main(String[] args) {
+
+
 
 
         //using List
@@ -69,7 +73,47 @@ public class EmployeeMap {
 
           // this is using streams
           employeeMap.entrySet().stream().forEach(mapEntry ->{
-              System.out.println("k"+mapEntry.getKey()+"  values "+mapEntry.getValue());
+
+              System.out.println("k"+mapEntry.getKey()+"  values "+mapEntry.getValue().getEmployeeName());
+
+            //  logger.info("Hello");
+
+
+
+
+              TreeMap<String,Employee> employeeTreeMap= new TreeMap<>(employeeMap);
+
+              employeeMap.entrySet().stream().forEach(employeeTreeMap2->{
+
+                  System.out.println("Tree Key "+employeeTreeMap2.getKey()+" Tree Values"+employeeTreeMap2.getValue() );
+              });
+
+              Set<Map.Entry<String ,Employee>> treeSet=employeeTreeMap.entrySet();
+
+
+              Iterator<Map.Entry<String,Employee>> treeIIterator = treeSet.iterator();
+
+
+
+
+              for (;treeIIterator.hasNext();){
+                  Map.Entry<String ,Employee> TreeemployeeEntry= treeIIterator.next();
+                  System.out.println(TreeemployeeEntry.getKey()+"  values "+TreeemployeeEntry.getValue());
+              }
+
+
+
+              Iterator<String> treeIIterator2 = employeeTreeMap.keySet().iterator();
+
+
+
+
+
+
+
+
+
+
           });
 
 
