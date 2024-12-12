@@ -64,4 +64,41 @@ public class EmployeeService {
         entityManager.getTransaction().commit();
         return projectEntities;
     }
+
+    public List<ProjectEntity> getProjectsAndEmployeesBySalary(double minSalary) {
+
+        EntityManagerFactory entityManagerFactory =
+                Persistence.createEntityManagerFactory("jpaDemo");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+
+
+        Query query = entityManager.createQuery(
+                "SELECT DISTINCT p FROM ProjectEntity p " +
+                        "JOIN p.employeeEntity e " +
+                        "WHERE e.salary > :minSalary",
+                ProjectEntity.class
+        );
+
+//        Query query = entityManager.createQuery(
+//                "SELECT p FROM ProjectEntity p WHERE p.salary > :minSalary",
+//                ProjectEntity.class
+//        );
+
+
+
+
+        query.setParameter("minSalary", minSalary);
+
+        List<ProjectEntity> projectEntities = query.getResultList();
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return projectEntities;
+
+    }
+
 }
