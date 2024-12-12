@@ -13,17 +13,17 @@ public class JpaTest {
 
 
        EmployeeService service = new EmployeeService();
-        List<ProjectEntity> projectEntityList =   service.projectEmpInnerjoin();
-
-        for (int i =0;i<projectEntityList.size();i++){
-
-
-            System.out.println("  Project  ::::::: " +projectEntityList.get(i));
-
-            projectEntityList.get(i).getEmployeeEntity().forEach( emp -> {
-                System.out.println(" emp "+emp);
-            });
-        }
+//        List<ProjectEntity> projectEntityList =   service.projectEmpInnerjoin();
+//
+//        for (int i =0;i<projectEntityList.size();i++){
+//
+//
+//            System.out.println("  Project  ::::::: " +projectEntityList.get(i));
+//
+//            projectEntityList.get(i).getEmployeeEntity().forEach( emp -> {
+//                System.out.println(" emp "+emp);
+//            });
+//        }
 
 //        System.out.println(projectEntityList);
 
@@ -42,6 +42,19 @@ public class JpaTest {
 //        }
 
        // System.out.println(projectEntityList2);
+
+
+        List<ProjectEntity> projectEntityList2 = service.getProjectsAndEmployeesBySalary(20000);
+
+        for (ProjectEntity project : projectEntityList2) {
+
+            System.out.println("Project: " + project.getProjectname());
+            project.getEmployeeEntity().forEach(employee -> {
+                System.out.println("Employee: " + employee.getName() + ", Salary: " + employee.getSalary());
+
+            });
+
+        }
 
 
 
