@@ -10,12 +10,14 @@ public class JpaService {
 
     public List<ProjectEntity> projectEntities(){
 
-        String query="select p from ProjectEntity p left join p.employeeEntity e ";
+        String query="select p from ProjectEntity p inner join p.employeeEntity e where p.id=e.pid ";
        EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("jpaDemo");
        EntityManager entityManager= entityManagerFactory.createEntityManager();
 
        entityManager.getTransaction().begin();
-       List<ProjectEntity> projectEntityList= entityManager.createQuery(query).getResultList();
+
+     //  Query query1 = entityManager.createQuery("select ")
+       List<ProjectEntity> projectEntityList= entityManager.createQuery(query, ProjectEntity.class).getResultList();
 
        entityManager.getTransaction().commit();
 
@@ -23,5 +25,25 @@ public class JpaService {
 
 
     }
+
+    public List<ProjectEntity> nPluseOneProblem(){
+
+     //   String query="select p from ProjectEntity p inner join p.employeeEntity e where p.id=e.pid ";
+        EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("jpaDemo");
+        EntityManager entityManager= entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+
+     Query query= entityManager.createQuery("select distinct(p) from ProjectEntity p join fetch p.empemployeeEntity", ProjectEntity.class);
+        List<ProjectEntity> projectEntityList1=query.getResultList();
+        entityManager.getTransaction().commit();
+
+        return projectEntityList1;
+
+
+    }
+
+
+
 
 }

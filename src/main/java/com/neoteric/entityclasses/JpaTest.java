@@ -10,20 +10,38 @@ public class JpaTest {
 
     public static void main(String[] args) {
 
-       JpaService jpaService = new JpaService();
 
 
-        List<ProjectEntity> projectEntityList=jpaService.projectEntities();
+       EmployeeService service = new EmployeeService();
+        List<ProjectEntity> projectEntityList =   service.projectEmpInnerjoin();
 
-        for(int i=0;i<projectEntityList.size();i++){
+        for (int i =0;i<projectEntityList.size();i++){
 
 
-            System.out.println("project  "+  projectEntityList.get(i));
+            System.out.println("  Project  ::::::: " +projectEntityList.get(i));
 
-            projectEntityList.get(i).getEmployeeEntity().forEach(emap ->{
-                System.out.println("emp  "  +emap);
+            projectEntityList.get(i).getEmployeeEntity().forEach( emp -> {
+                System.out.println(" emp "+emp);
             });
         }
+
+//        System.out.println(projectEntityList);
+
+
+
+//        List<ProjectEntity> projectEntityList2 =   service.nplusone();
+//
+//        for (int i =0;i<projectEntityList2.size();i++){
+//
+//
+//            System.out.println("  Project  ::::::: " +projectEntityList2.get(i));
+//
+//            projectEntityList2.get(i).getEmployeeEntity().forEach( emp -> {
+//                System.out.println(" emp "+emp);
+//            });
+//        }
+
+       // System.out.println(projectEntityList2);
 
 
 
