@@ -1,5 +1,6 @@
-package com.neoteric.entityclasses;
+package com.neoteric.insertjdbc;
 
+import com.neoteric.entityclasses.EmployeeEntity;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -25,7 +26,7 @@ public class ProjectEntity {
 
 
 @OneToMany(mappedBy = "projectEntity",cascade = CascadeType.ALL,fetch =FetchType.LAZY )
-    private List<EmployeeEntity> employeeEntity;
+    private List<com.neoteric.entityclasses.EmployeeEntity> employeeEntity;
 
     public ProjectEntity(){
         //Default constructor required by jpa
@@ -64,7 +65,7 @@ public class ProjectEntity {
         this.endDate = endDate;
     }
 
-    public List<EmployeeEntity> getEmployeeEntity() {
+    public List<com.neoteric.entityclasses.EmployeeEntity> getEmployeeEntity() {
         return employeeEntity;
     }
 

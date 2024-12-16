@@ -1,11 +1,10 @@
-package com.neoteric.entityclasses;
+package com.neoteric.insertjdbc;
 
 import com.neoteric.entityclasses.ProjectEntity;
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
-@Table(name = "Employee",schema = "sonar")
+@Table(name = "employee_latest",schema = "sonarlatest")
 
 public class EmployeeEntity {
 

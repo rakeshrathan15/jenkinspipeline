@@ -1,9 +1,5 @@
 package com.neoteric.entityclasses;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-
 import java.util.List;
 
 public class JpaTest {
@@ -44,20 +40,20 @@ public class JpaTest {
        // System.out.println(projectEntityList2);
 
 
-        List<ProjectEntity> projectEntityList2 = service.getProjectsAndEmployeesBySalary(20000);
+//        List<EmployeeEntity> employess = service.getProjectsAndEmployeesBySalary(100000);
+//
+//        employess.forEach(employee -> {
+//                System.out.println("Employee: " + employee.getName() + ", Salary: " + employee.getSalary());
+//
+//            });
 
-        for (ProjectEntity project : projectEntityList2) {
 
-            System.out.println("Project: " + project.getProjectname());
-            project.getEmployeeEntity().forEach(employee -> {
-                System.out.println("Employee: " + employee.getName() + ", Salary: " + employee.getSalary());
-
-            });
+        List<EmployeeEntity> criteriaQuery = service.criteriaQuery("CSE",50000.0);
+        criteriaQuery.forEach(employee -> System.out.println("Employee Name: " + employee.getName()
+                + " Employee Salary" + employee.getSalary()));
 
         }
 
 
-
-
     }
-}
+
