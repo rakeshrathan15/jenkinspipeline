@@ -12,7 +12,7 @@ public class EmployeeService {
 
     public List<ProjectEntity> getEmpProjectMap(){
 
-        EntityManagerFactory entityManagerFactory =  Persistence.createEntityManagerFactory("jpaDemo");
+        EntityManagerFactory entityManagerFactory =  Persistence.createEntityManagerFactory("");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 //select * from sonar.Project p inner join  sonar.Employee e on p.id=e.pid
 
@@ -31,7 +31,7 @@ public class EmployeeService {
     public List<ProjectEntity> projectEmpInnerjoin(){
 
         EntityManagerFactory entityManagerFactory =
-                Persistence.createEntityManagerFactory("jpaDemo");
+                Persistence.createEntityManagerFactory("");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 //select * from sonar.Project p inner join  sonar.Employee e on p.id=e.pid
 
@@ -50,7 +50,7 @@ public class EmployeeService {
     public List<ProjectEntity> nplusone(){
 
         EntityManagerFactory entityManagerFactory =
-                Persistence.createEntityManagerFactory("jpaDemo");
+                Persistence.createEntityManagerFactory("");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 //select * from sonar.Project p inner join  sonar.Employee e on p.id=e.pid
 
@@ -69,7 +69,7 @@ public class EmployeeService {
     public List<EmployeeEntity> getProjectsAndEmployeesBySalary(double minSalary) {
 
         EntityManagerFactory entityManagerFactory =
-                Persistence.createEntityManagerFactory("jpaDemo");
+                Persistence.createEntityManagerFactory("");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
@@ -102,7 +102,7 @@ public class EmployeeService {
 
 
     public static List<EmployeeEntity> criteriaQuery(String deptname , double minsalary) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpaDemo");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<EmployeeEntity> criteriaQuery = criteriaBuilder.createQuery(EmployeeEntity.class);

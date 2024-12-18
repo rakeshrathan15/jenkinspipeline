@@ -5,8 +5,8 @@
     <persistence-unit name="jpaDemo" >
 
         <!-- Specify the entity classes here -->
-        <class>com.neoteric.entityclasses.EmployeeEntity</class>
-        <class>com.neoteric.entityclasses.ProjectEntity</class>
+        <class>com.neoteric.jpaonetomanyinserts.EmployeeEntityJPA</class>
+        <class>com.neoteric.jpaonetomanyinserts.ProjectEntityJPA</class>
 
         <!-- Configuration for database connection -->
         <properties>

@@ -1,17 +1,18 @@
 package com.neoteric.jpaonetomanyinserts;
 
-import com.neoteric.entityclasses.EmployeeEntity;
+
 import jakarta.persistence.*;
 
 import java.util.Date;
 import java.util.List;
 
-@Entity
-@Table(name = "Project",schema = "sonar")
+@Entity(name = "ProjectEntityJPA")
+@Table(name = "project_jpa",schema = "sonarlatest")
 
-public class ProjectEntity {
+public class ProjectEntityJPA {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private  int id;
 
@@ -26,9 +27,9 @@ public class ProjectEntity {
 
 
 @OneToMany(mappedBy = "projectEntity",cascade = CascadeType.ALL,fetch =FetchType.LAZY )
-    private List<EmployeeEntity> employeeEntity;
+    private List<EmployeeEntityJPA> employeeEntity;
 
-    public ProjectEntity(){
+    public ProjectEntityJPA(){
         //Default constructor required by jpa
     }
 
@@ -65,11 +66,11 @@ public class ProjectEntity {
         this.endDate = endDate;
     }
 
-    public List<EmployeeEntity> getEmployeeEntity() {
+    public List<EmployeeEntityJPA> getEmployeeEntity() {
         return employeeEntity;
     }
 
-    public void setEmployeeEntity(List<EmployeeEntity> employeeEntity) {
+    public void setEmployeeEntity(List<EmployeeEntityJPA> employeeEntity) {
         this.employeeEntity = employeeEntity;
     }
 

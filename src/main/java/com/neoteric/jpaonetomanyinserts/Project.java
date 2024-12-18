@@ -1,6 +1,6 @@
 package com.neoteric.jpaonetomanyinserts;
 
-import com.neoteric.insertjdbc.Employee;
+
 import lombok.Data;
 
 import java.util.ArrayList;

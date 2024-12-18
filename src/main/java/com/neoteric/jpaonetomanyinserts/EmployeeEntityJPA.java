@@ -1,20 +1,21 @@
 package com.neoteric.jpaonetomanyinserts;
 
-import com.neoteric.entityclasses.ProjectEntity;
+
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "employee_latest",schema = "sonarlatest")
+@Entity(name = "EmployeeEntityJPA")
+@Table(name = "employee_jpa",schema = "sonarlatest")
 
-public class EmployeeEntity {
+public class EmployeeEntityJPA {
 
-    public EmployeeEntity(){
+    public EmployeeEntityJPA(){
         //Default constructor
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-  private int id;
+    private int id;
 
   @Column(name = "name")
   private  String name;
@@ -31,7 +32,7 @@ public class EmployeeEntity {
 
 @ManyToOne
 @JoinColumn(name = "pid",referencedColumnName = "id")
-private ProjectEntity projectEntity;
+private ProjectEntityJPA projectEntity;
 
     public int getId() {
         return id;
@@ -73,11 +74,11 @@ private ProjectEntity projectEntity;
         this.state = state;
     }
 
-    public ProjectEntity getProjectEntity() {
+    public ProjectEntityJPA getProjectEntity() {
         return projectEntity;
     }
 
-    public void setProjectEntity(ProjectEntity projectEntity) {
+    public void setProjectEntity(ProjectEntityJPA projectEntity) {
         this.projectEntity = projectEntity;
     }
 
